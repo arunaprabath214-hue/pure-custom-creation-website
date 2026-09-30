@@ -28,11 +28,11 @@ export const industries = [
   { title: 'Events', image: pccAssets.industryEvents },
 ];
 export const work = [
-  { title: 'Marinate', type: 'Portfolio visual', image: pccAssets.workMarinate },
-  { title: 'Cafe Nuwara', type: 'Portfolio visual', image: pccAssets.workCafeNuwara },
-  { title: 'Cafe Seema', type: 'Portfolio visual', image: pccAssets.workSeema },
-  { title: 'Divine Street', type: 'Portfolio visual', image: pccAssets.workDivineStreet },
-  { title: 'Chill Kandy', type: 'Portfolio visual', image: pccAssets.workChillKandy },
+  { title: 'Hospitality Table', type: 'Brand application', image: pccAssets.workMarinate },
+  { title: 'Bottle Branding', type: 'Brand application', image: pccAssets.workCafeNuwara },
+  { title: 'Premium Table', type: 'Brand application', image: pccAssets.workSeema },
+  { title: 'Event Branding', type: 'Brand application', image: pccAssets.workDivineStreet },
+  { title: 'Business Supply', type: 'Brand application', image: pccAssets.workChillKandy },
 ];
 export const process = [
   ['01', 'Tell Us Your Requirement', 'Share what you need for your business or event.'],

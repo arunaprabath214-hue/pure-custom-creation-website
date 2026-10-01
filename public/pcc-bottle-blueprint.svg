@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1086 1448" role="img" aria-label="PCC bottle technical blueprint reference">
+<defs>
+  <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#79b6e6" stroke-opacity=".16"/></pattern>
+  <style>.s{fill:none;stroke:#fff;stroke-width:2}.d{fill:none;stroke:#fff;stroke-width:1.5;stroke-dasharray:8 8}.t{fill:#fff;font-family:Arial,sans-serif;letter-spacing:3px}.m{fill:#fff;font-family:Arial,sans-serif;font-size:20px;letter-spacing:2px}</style>
+</defs>
+<rect width="1086" height="1448" fill="#07569b"/><rect width="1086" height="1448" fill="url(#grid)"/>
+<g class="s" transform="translate(125 90)">
+  <path d="M185 80h150v45q0 16 12 27l42 42q35 35 35 88v420q0 24-23 24H119q-23 0-23-24V282q0-53 35-88l42-42q12-11 12-27V80z"/>
+  <path d="M174 80v-25h172v25"/><path d="M160 125h200"/><path d="M118 314h284"/>
+  <rect x="118" y="314" width="284" height="115" fill="#07569b"/>
+  <path d="M118 429h284M118 500h284M118 535h284M118 570h284M118 605h284M118 640h284M118 675h284"/>
+  <path d="M118 720h284M118 750h284M118 780h284"/><path d="M118 810h284"/>
+  <path d="M260 0V860" class="d"/>
+</g>
+<g class="s" transform="translate(735 115)">
+  <circle cx="120" cy="120" r="96"/><circle cx="120" cy="120" r="70"/><circle cx="120" cy="120" r="48"/><path d="M24 120h192M120 24v192" class="d"/>
+</g>
+<g class="s" transform="translate(735 365)">
+  <path d="M90 45h60v25q0 10 7 16l17 18q22 23 22 51v220q0 12-12 12H56q-12 0-12-12V155q0-28 22-51l17-18q7-6 7-16V45z"/>
+  <path d="M82 45h76M55 150h130M55 240h130M55 270h130M55 300h130M55 330h130"/>
+  <path d="M120 20v350" class="d"/>
+</g>
+<g class="s" transform="translate(735 790)">
+  <rect x="58" y="35" width="124" height="55" rx="10"/><path d="M68 35v-18h104v18M70 58h100M75 72h90"/>
+</g>
+<g class="s" opacity=".9">
+  <path d="M78 170h35M78 950h35M90 170v780M84 170h12M84 950h12"/>
+  <path d="M110 985h350M110 975v20M460 975v20"/>
+  <path d="M305 50v30M475 50v30M305 65h170M305 58v14M475 58v14"/>
+</g>
+<g class="t" font-size="25">
+ <text x="110" y="55">PCC / BOTTLE ENGINEERING / REFERENCE</text>
+ <text x="118" y="1130" font-size="28">FRONT VIEW</text><text x="735" y="305" font-size="25">TOP VIEW</text>
+ <text x="735" y="740" font-size="25">SIDE VIEW</text><text x="735" y="880" font-size="25">CAP DETAIL</text>
+</g>
+<g class="m">
+ <text x="42" y="570" transform="rotate(-90 42 570)">210 mm OVERALL HEIGHT</text>
+ <text x="235" y="1010">Ø 65 mm</text><text x="355" y="45">Ø 28 mm</text>
+ <text x="760" y="250">Ø 65 mm</text><text x="775" y="915">Ø 28 mm</text>
+ <text x="125" y="480">60 mm LABEL ZONE</text><text x="135" y="835">125 mm LOWER BODY</text><text x="790" y="990">18 mm CAP</text>
+</g>
+</svg>

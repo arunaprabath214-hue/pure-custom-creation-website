@@ -3,15 +3,15 @@ import { useEffect, useRef, useState } from 'react';
 import { ArrowDown, ArrowRight, Menu, X, MessageCircle, Mail, Facebook, Instagram, Music2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { email, phone, whatsapp } from './content';
+import { pccAssets } from './assets';
 
 const nav = [
   ['Home', '/'], ['Custom Water', '/custom-water'], ['Solutions', '/solutions'], ['Industries', '/industries'], ['Our Work', '/our-work'], ['How It Works', '/how-it-works'], ['About', '/about'], ['Contact', '/contact'],
 ] as const;
 
 export function Brand({ light = false }: { light?: boolean }) {
-  return <Link to="/" className={`inline-flex shrink-0 flex-col leading-none ${light ? 'text-primary-foreground' : 'text-foreground'}`} aria-label="Pure Custom Creation home">
-    <strong className="font-display text-[18px] font-extrabold tracking-[-0.08em] lowercase sm:text-[21px]">pure</strong>
-    <span className="mt-1 text-[8px] font-bold tracking-[0.16em]">CUSTOM CREATION</span>
+  return <Link to="/" className="inline-flex shrink-0 items-center" aria-label="Pure Custom Creation home">
+    <img src={pccAssets.pccLogoFull ?? ''} alt="Pure Custom Creation" width={356} height={65} className={`h-auto w-[150px] sm:w-[175px] ${light ? '' : 'invert'}`} />
   </Link>;
 }
 

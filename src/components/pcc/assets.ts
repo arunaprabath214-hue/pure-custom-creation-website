@@ -1,9 +1,9 @@
-import bottle from '@/assets/pcc-bottle.svg';
-
-const bottleScene = '/pcc-bottle-scene.svg';
+const bottleScene = '/pcc-bottle-official.svg';
 const tableScene = '/pcc-table.svg';
 const labelScene = '/pcc-label.svg';
 const eventScene = '/pcc-event.svg';
+const logoFull = '/pcc-logo.svg';
+const bottleBlueprint = '/pcc-bottle-blueprint.svg';
 
 export const pccAssets = {
   heroSlide01: bottleScene,
@@ -25,8 +25,8 @@ export const pccAssets = {
   workChillKandy: bottleScene,
   finalCtaImage: tableScene,
   pccLogoIcon: null,
-  pccLogoFull: null,
-  bottleBlueprint: null,
+  pccLogoFull: logoFull,
+  bottleBlueprint,
 } as const;
 
 export type PccAssetId = keyof typeof pccAssets;

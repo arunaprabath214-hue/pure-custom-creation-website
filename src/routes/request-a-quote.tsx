@@ -32,7 +32,10 @@ function Quote() {
       source: 'website',
     };
     const { error } = await supabase.from('quote_requests').insert(payload);
-    if (error) console.error('Quote request save failed:', error);
+    if (error) {
+      console.error('Quote request save failed:', error);
+      setFileError('We could not save your enquiry online. Please continue on WhatsApp so the PCC team still receives your request.');
+    }
     setUrl(whatsapp + '?text=' + encodeURIComponent(lines.join('\n')));
     setSent(true);
   }

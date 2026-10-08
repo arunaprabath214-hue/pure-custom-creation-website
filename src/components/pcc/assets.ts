@@ -3,6 +3,7 @@ const tableScene = '/pcc-table.svg';
 const labelScene = '/pcc-label.svg';
 const eventScene = '/pcc-event.svg';
 const logoFull = '/pcc-logo.svg';
+const logoIcon = '/pcc-icon-logo.svg';
 const bottleBlueprint = '/pcc-bottle-blueprint.svg';
 
 export const pccAssets = {
@@ -24,7 +25,7 @@ export const pccAssets = {
   workDivineStreet: eventScene,
   workChillKandy: bottleScene,
   finalCtaImage: tableScene,
-  pccLogoIcon: null,
+  pccLogoIcon: logoIcon,
   pccLogoFull: logoFull,
   bottleBlueprint,
 } as const;

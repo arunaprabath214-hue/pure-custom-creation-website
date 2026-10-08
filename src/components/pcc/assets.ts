@@ -2,7 +2,7 @@ const bottleScene = '/pcc-bottle-official.svg';
 const tableScene = '/pcc-table.svg';
 const labelScene = '/pcc-label.svg';
 const eventScene = '/pcc-event.svg';
-const logoFull = '/pcc-logo.svg';
+const logoFull = '/pcc-full-logo.svg';
 const logoIcon = '/pcc-icon-logo.svg';
 const bottleBlueprint = '/pcc-bottle-blueprint.svg';
 

@@ -28,7 +28,7 @@ Branch: `pcc-audit-improvements-2026-10`
 - [x] Quantity is constrained to 1–1,000,000.
 - [x] Logo file is limited to 5 MB and accepted file types are constrained.
 - [x] Honeypot prevents submission when populated.
-- [x] Quote database failure is surfaced as a fallback state before WhatsApp continuation.
+- [x] Quote database errors and thrown save exceptions are surfaced as a fallback state before WhatsApp continuation.
 - [x] WhatsApp message is URL-encoded before continuation.
 - [x] Privacy route is linked from the quote form and footer.
 - [x] No hardcoded Supabase URL/key fallback remains in source.

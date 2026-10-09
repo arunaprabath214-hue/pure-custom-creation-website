@@ -64,10 +64,17 @@ function Quote() {
       source: 'website',
     };
 
-    const { error } = await supabase.from('quote_requests').insert(payload);
-    setSaveFailed(Boolean(error));
+    let saveError: unknown = null;
+    try {
+      const { error } = await supabase.from('quote_requests').insert(payload);
+      saveError = error;
+    } catch (error) {
+      saveError = error;
+    }
 
-    if (error) console.error('Quote request save failed:', error);
+    const failed = Boolean(saveError);
+    setSaveFailed(failed);
+    if (failed) console.error('Quote request save failed:', saveError);
 
     setUrl(whatsapp + '?text=' + encodeURIComponent(lines.join('\n')));
     setSent(true);

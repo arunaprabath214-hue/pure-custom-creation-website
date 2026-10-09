@@ -85,10 +85,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Pure Custom Creation" },
       { property: "og:description", content: "Custom-branded bottled water and hospitality branding in Sri Lanka." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://purecustomcreation.com/" },
+      { property: "og:site_name", content: "Pure Custom Creation" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "robots", content: "index,follow,max-image-preview:large" },
       
     ],
     links: [
+      { rel: "canonical", href: "https://purecustomcreation.com/" },
       {
         rel: "stylesheet",
         href: appCss,

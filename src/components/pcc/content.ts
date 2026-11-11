@@ -9,17 +9,16 @@ export const images = {
 export const whatsapp = 'https://wa.me/94761882745';
 export const phone = '076 1882 745';
 export const email = 'purecustomcreation@gmail.com';
+
+// Availability and specifications should be confirmed with PCC before quoting.
 export const sizes = [
-  { size: '500ml', label: 'The everyday essential', detail: 'Made for tables, takeaway counters and memorable first impressions.' },
-  { size: '1000ml', label: 'A generous presence', detail: 'A considered choice for dining rooms and longer stays.' },
-  { size: '1500ml', label: 'Made to share', detail: 'A statement format for events, gatherings and group service.' },
+  { size: 'Bottle options', label: 'Discuss your preferred format', detail: 'Tell us the presentation and quantity you need. We will confirm available bottle options with our supply partners.' },
 ];
 export const solutions = [
-  { title: 'Custom Labels', detail: 'A label unmistakably yours.', image: pccAssets.solutionCustomLabels },
-  { title: 'Bottle Branding', detail: 'Your identity in every detail.', image: pccAssets.solutionBottleBranding },
-  { title: 'Table Branding', detail: 'A more complete table experience.', image: pccAssets.solutionTableBranding },
-  { title: 'Event Branding', detail: 'A lasting impression at every occasion.', image: pccAssets.solutionEventBranding },
-  { title: 'Business Supply', detail: 'Consistent presentation, at scale.', image: pccAssets.solutionBusinessSupply },
+  { title: 'Customized Water Bottles', detail: 'Drinking water presented with a label designed around your brand.', image: pccAssets.solutionCustomLabels },
+  { title: 'Label Design & Printing Coordination', detail: 'Creative label preparation and print coordination through our supplier network.', image: pccAssets.solutionBottleBranding },
+  { title: 'Bottle & Bulk Supply Coordination', detail: 'Bottle sourcing, filling coordination and supply planning for your requirements.', image: pccAssets.solutionBusinessSupply },
+  { title: 'Event & Corporate Water', detail: 'Custom-branded drinking water for business occasions, functions and events.', image: pccAssets.solutionEventBranding },
 ];
 export const industries = [
   { title: 'Cafés', image: pccAssets.industryCafes },
@@ -28,15 +27,15 @@ export const industries = [
   { title: 'Events', image: pccAssets.industryEvents },
 ];
 export const work = [
-  { title: 'Hospitality Table', type: 'Brand application', image: pccAssets.workMarinate },
-  { title: 'Bottle Branding', type: 'Brand application', image: pccAssets.workCafeNuwara },
-  { title: 'Premium Table', type: 'Brand application', image: pccAssets.workSeema },
-  { title: 'Event Branding', type: 'Brand application', image: pccAssets.workDivineStreet },
-  { title: 'Business Supply', type: 'Brand application', image: pccAssets.workChillKandy },
+  { title: 'Hospitality Label Concept', type: 'Illustrative concept', image: pccAssets.workMarinate },
+  { title: 'Cafe Bottle Concept', type: 'Illustrative concept', image: pccAssets.workCafeNuwara },
+  { title: 'Minimal Bottle Concept', type: 'Illustrative concept', image: pccAssets.workSeema },
+  { title: 'Event Bottle Concept', type: 'Illustrative concept', image: pccAssets.workDivineStreet },
+  { title: 'Business Bottle Concept', type: 'Illustrative concept', image: pccAssets.workChillKandy },
 ];
 export const process = [
-  ['01', 'Tell Us Your Requirement', 'Share what you need for your business or event.'],
-  ['02', 'Choose Bottle / Branding', 'Select the bottle size and branding direction.'],
-  ['03', 'We Prepare Your Design', 'Review the design before production begins.'],
-  ['04', 'Production & Delivery', 'Ready for your tables and occasions.'],
+  ['01', 'Share Your Brief', 'Tell us about your business, quantity, preferred bottle presentation and brand assets.'],
+  ['02', 'Bottle & Label Coordination', 'PCC coordinates bottle sourcing and custom label design and printing with its suppliers.'],
+  ['03', 'Filling & Labelling', 'The selected water-filling partner handles filling and label application.'],
+  ['04', 'Supply & Distribution', 'PCC coordinates the completed order and agreed supply arrangements with you.'],
 ];

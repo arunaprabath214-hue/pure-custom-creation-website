@@ -6,9 +6,9 @@ import { PhotoCTA, SectionTitle } from '@/components/pcc/Site';
 import { images, solutions, industries, work, process } from '@/components/pcc/content';
 
 export const Route = createFileRoute('/')({ head: () => ({ meta: [
-  { title: 'Pure Custom Creation | Pure Hydration. Creative Expression.' },
+  { title: 'Pure Custom Creation | Represent Your Brand on Every Bottle' },
   { name: 'description', content: 'Customized bottled drinking water for cafés, restaurants, hotels, events and businesses in Sri Lanka.' },
-  { property: 'og:title', content: 'Pure Custom Creation | Your Brand. Your Bottle.' },
+  { property: 'og:title', content: 'Pure Custom Creation | Represent your brand on every bottle' },
   { property: 'og:description', content: 'Customized drinking water coordinated from bottle and label to filling and supply.' },
   { property: 'og:type', content: 'website' }, { name: 'twitter:card', content: 'summary_large_image' }
 ] }), component: Home });

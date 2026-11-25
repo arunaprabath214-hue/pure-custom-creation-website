@@ -1,137 +1,106 @@
-import { Link } from '@tanstack/react-router';
-import { ArrowDown, ArrowLeft, ArrowRight, Pause, Play, Droplets, Sparkles, Check } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { pccAssets } from './assets';
-import { Eyebrow } from './Site';
 
-const slides = [
-  { image: pccAssets.heroSlide01, alt: 'Clear customized bottled drinking water', note: 'The bottle / 01' },
-  { image: pccAssets.heroSlide02, alt: 'Customized bottled water in a restaurant setting', note: 'Hospitality / 02' },
-  { image: pccAssets.heroSlide03, alt: 'Branded bottled water presented on a dining table', note: 'Brand expression / 03' },
+const caps = [
+  { name: 'Ocean Blue', color: '#0876ef' },
+  { name: 'Ruby Red', color: '#e43d4d' },
+  { name: 'Violet', color: '#843ce4' },
+  { name: 'Sun Gold', color: '#f0b51b' },
+  { name: 'Pearl', color: '#edf2f7' },
+  { name: 'Graphite', color: '#252b39' },
 ];
 
-const capOptions = [
-  { name: 'Ocean', hex: '#0b3852' },
-  { name: 'Aqua', hex: '#35bdc8' },
-  { name: 'Pearl', hex: '#eaf4f5' },
-  { name: 'Coral', hex: '#e28d7d' },
+const labels = [
+  { name: 'Ocean Wave', a: '#0756d8', b: '#45d3e5', c: '#082b75' },
+  { name: 'Botanical', a: '#247d4a', b: '#9bd77c', c: '#e4f4d8' },
+  { name: 'Midnight Gold', a: '#102b4d', b: '#d6ae62', c: '#061a32' },
+  { name: 'Soft Marble', a: '#e7edf2', b: '#aebfce', c: '#f9fbfc' },
+  { name: 'Violet Flow', a: '#7527dc', b: '#e07adf', c: '#3f1c94' },
 ];
 
-function BottleShowcase({ capColor }: { capColor: string }) {
+function Bottle({ cap, label }: { cap: string; label: typeof labels[number] }) {
   return (
-    <svg viewBox="0 0 480 640" role="img" aria-label="Illustrative customized water bottle with a selectable cap colour" className="bottle-float h-full w-full overflow-visible">
+    <svg viewBox="0 0 520 760" className="pcc-real-bottle" role="img" aria-label={`PCC custom water bottle with ${label.name} label and ${caps.find(c => c.color === cap)?.name} cap`}>
       <defs>
-        <linearGradient id="pccGlass" x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0" stopColor="#dffbff" stopOpacity=".18" />
-          <stop offset=".18" stopColor="#ffffff" stopOpacity=".78" />
-          <stop offset=".42" stopColor="#b7edf4" stopOpacity=".24" />
-          <stop offset=".7" stopColor="#ffffff" stopOpacity=".52" />
-          <stop offset="1" stopColor="#8bd9e7" stopOpacity=".2" />
-        </linearGradient>
-        <linearGradient id="pccWater" x1="0" x2="1" y1="0" y2="1">
-          <stop offset="0" stopColor="#a8f0ef" stopOpacity=".25" />
-          <stop offset="1" stopColor="#48b9d0" stopOpacity=".48" />
-        </linearGradient>
-        <linearGradient id="pccLabel" x1="0" x2="1" y1="0" y2="1">
-          <stop offset="0" stopColor="#ffffff" />
-          <stop offset="1" stopColor="#e7f7f8" />
-        </linearGradient>
-        <filter id="pccBottleShadow" x="-50%" y="-30%" width="200%" height="180%">
-          <feGaussianBlur stdDeviation="13" />
-        </filter>
+        <linearGradient id="bottleGlass" x1="0" x2="1" y1="0" y2=".15"><stop offset="0" stopColor="#d9f5ff" stopOpacity=".35"/><stop offset=".18" stopColor="#fff" stopOpacity=".92"/><stop offset=".43" stopColor="#bdeeff" stopOpacity=".28"/><stop offset=".72" stopColor="#fff" stopOpacity=".72"/><stop offset="1" stopColor="#8fd5f5" stopOpacity=".34"/></linearGradient>
+        <linearGradient id="capGloss" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stopColor="#fff" stopOpacity=".55"/><stop offset=".3" stopColor="#fff" stopOpacity=".06"/><stop offset="1" stopColor="#071b58" stopOpacity=".35"/></linearGradient>
+        <linearGradient id="labelPaper" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stopColor="#fff"/><stop offset="1" stopColor="#eaf6fb"/></linearGradient>
+        <linearGradient id="labelA" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stopColor={label.a}/><stop offset="1" stopColor={label.c}/></linearGradient>
+        <filter id="bottleShadow" x="-60%" y="-40%" width="220%" height="220%"><feGaussianBlur stdDeviation="17"/></filter>
+        <filter id="bottleGlow" x="-60%" y="-40%" width="220%" height="220%"><feGaussianBlur stdDeviation="5"/></filter>
       </defs>
-      <ellipse cx="240" cy="594" rx="112" ry="17" fill="#61d6df" opacity=".22" filter="url(#pccBottleShadow)" />
-      <circle cx="240" cy="300" r="188" fill="#8de8ed" opacity=".08" />
-      <path d="M193 106 L193 143 C193 164 161 177 145 201 C128 227 125 260 125 303 L125 544 C125 574 147 596 177 596 L303 596 C333 596 355 574 355 544 L355 303 C355 260 352 227 335 201 C319 177 287 164 287 143 L287 106 Z" fill="url(#pccGlass)" stroke="#d9fbff" strokeOpacity=".85" strokeWidth="3" />
-      <path d="M132 388 C176 375 204 398 240 388 C278 377 310 376 348 390 L348 544 C348 571 330 589 303 589 L177 589 C150 589 132 571 132 544 Z" fill="url(#pccWater)" opacity=".78" />
-      <path d="M133 389 C174 376 205 398 240 388 C279 377 311 378 347 390" fill="none" stroke="#d8ffff" strokeOpacity=".75" strokeWidth="3" />
-      <path d="M151 220 C163 194 185 182 201 165 L201 143 L279 143 L279 165 C295 182 317 194 329 220" fill="none" stroke="#ffffff" strokeOpacity=".45" strokeWidth="3" />
-      <path d="M155 237 L155 531 C155 551 166 566 183 570" fill="none" stroke="#ffffff" strokeOpacity=".72" strokeWidth="8" strokeLinecap="round" />
-      <path d="M325 240 L325 533" fill="none" stroke="#ffffff" strokeOpacity=".34" strokeWidth="4" strokeLinecap="round" />
-      <rect x="190" y="48" width="100" height="59" rx="10" fill={capColor} stroke="#ffffff" strokeOpacity=".8" strokeWidth="3" />
-      {Array.from({ length: 11 }, (_, index) => <path key={index} d={`M${198 + index * 8} 56 V99`} stroke="#ffffff" strokeOpacity=".23" strokeWidth="2" />)}
-      <rect x="194" y="103" width="92" height="11" rx="4" fill={capColor} stroke="#ffffff" strokeOpacity=".45" />
-      <rect x="144" y="284" width="192" height="190" rx="13" fill="url(#pccLabel)" stroke="#ffffff" strokeWidth="2" />
-      <path d="M164 308 H316" stroke="#8ad9df" strokeWidth="2" />
-      <circle cx="240" cy="344" r="17" fill="#0c6077" />
-      <path d="M232 344 C235 336 245 336 248 344 C245 352 235 352 232 344 Z" fill="#dffbff" />
-      <text x="240" y="388" fill="#0b3852" textAnchor="middle" fontSize="14" fontWeight="700" letterSpacing="3">YOUR BRAND</text>
-      <text x="240" y="411" fill="#397b8d" textAnchor="middle" fontSize="8" fontWeight="600" letterSpacing="2.2">CUSTOM BOTTLED WATER</text>
-      <path d="M180 438 H300" stroke="#b7dfe5" strokeWidth="1.5" />
-      <text x="240" y="456" fill="#397b8d" textAnchor="middle" fontSize="8" letterSpacing="2">PURE · PERSONAL · PRESENTED</text>
-      <path d="M174 592 Q240 609 306 592" fill="none" stroke="#ffffff" strokeOpacity=".7" strokeWidth="3" />
+      <ellipse cx="265" cy="708" rx="130" ry="23" fill="#6e9ce8" opacity=".25" filter="url(#bottleShadow)"/>
+      <g>
+        <path d="M210 119 L210 158 C210 181 170 197 150 230 C130 263 125 300 125 351 L125 646 C125 682 151 708 187 708 L343 708 C379 708 405 682 405 646 L405 351 C405 300 400 263 380 230 C360 197 320 181 320 158 L320 119 Z" fill="url(#bottleGlass)" stroke="#fff" strokeWidth="4" strokeOpacity=".9"/>
+        <path d="M136 376 Q265 395 394 376 L394 647 Q394 696 343 696 L187 696 Q136 696 136 647 Z" fill="#a8e7f8" opacity=".18"/>
+        <path d="M145 279 Q265 306 385 279 M133 345 Q265 368 397 345 M134 620 Q265 644 396 620" fill="none" stroke="#fff" strokeOpacity=".72" strokeWidth="7"/>
+        <path d="M162 270 L162 637 Q162 668 188 680" fill="none" stroke="#fff" strokeWidth="11" strokeLinecap="round" opacity=".72"/>
+        <path d="M365 276 L365 638" fill="none" stroke="#fff" strokeWidth="5" strokeLinecap="round" opacity=".48"/>
+        <path d="M207 158 L207 183 Q185 196 171 214 M323 158 L323 183 Q345 196 359 214" fill="none" stroke="#fff" strokeOpacity=".55" strokeWidth="5"/>
+        <rect x="204" y="65" width="122" height="92" rx="18" fill={cap} stroke="#fff" strokeWidth="4"/>
+        <rect x="204" y="65" width="122" height="92" rx="18" fill="url(#capGloss)"/>
+        {Array.from({length:14},(_,i)=><path key={i} d={`M${211+i*8} 75 V145`} stroke="#fff" strokeOpacity=".32" strokeWidth="2.5"/>)}
+        <rect x="211" y="151" width="108" height="17" rx="6" fill={cap} stroke="#fff" strokeOpacity=".65" strokeWidth="2"/>
+        <g className="pcc-label-art">
+          <rect x="137" y="382" width="256" height="220" rx="13" fill="url(#labelPaper)" stroke="#fff" strokeWidth="4"/>
+          <path d="M140 480 Q198 452 250 480 T390 475 L390 598 L140 598 Z" fill="url(#labelA)"/>
+          <path d="M140 505 Q205 472 260 505 T390 497" fill="none" stroke={label.b} strokeWidth="24" opacity=".9"/>
+          <path d="M140 526 Q215 496 265 527 T390 516" fill="none" stroke="#fff" strokeWidth="5" opacity=".8"/>
+          <g transform="translate(221 405) scale(.115)">
+            <path d="M0 120 C90 -10 250 -15 460 0 C360 75 230 100 0 120Z M0 135 C120 110 250 105 460 30 C350 165 190 180 0 270Z" fill="#071f43"/>
+          </g>
+          <text x="260" y="454" textAnchor="middle" fill="#071f43" fontSize="17" fontWeight="800" letterSpacing="2">PURE CUSTOM</text>
+          <text x="260" y="473" textAnchor="middle" fill="#31536f" fontSize="10" fontWeight="700" letterSpacing="3">CREATION</text>
+          <text x="260" y="565" textAnchor="middle" fill="#fff" fontSize="15" fontWeight="700" letterSpacing="2">DRINKING WATER</text>
+          <text x="260" y="583" textAnchor="middle" fill="#fff" fontSize="11" letterSpacing="2">500 ml</text>
+        </g>
+        {Array.from({length:24},(_,i)=><circle key={i} cx={151+(i*37)%222} cy={235+(i*61)%410} r={i%3===0?4:2.2} fill="#fff" opacity={i%2===0?.8:.45}/>)}
+      </g>
     </svg>
   );
 }
 
 export function HomeHero() {
-  const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const [capColor, setCapColor] = useState(capOptions[0].hex);
+  const [capIndex, setCapIndex] = useState(0);
+  const [labelIndex, setLabelIndex] = useState(0);
 
   useEffect(() => {
-    if (paused) return;
-    const timer = window.setInterval(() => setActive((current) => (current + 1) % slides.length), 6800);
+    const timer = window.setInterval(() => {
+      setCapIndex(current => (current + 1 + Math.floor(Math.random() * (caps.length - 1))) % caps.length);
+      setLabelIndex(current => (current + 1 + Math.floor(Math.random() * (labels.length - 1))) % labels.length);
+    }, 2300);
     return () => window.clearInterval(timer);
-  }, [paused]);
-
-  const move = (direction: number) => setActive((current) => (current + direction + slides.length) % slides.length);
+  }, []);
 
   return (
-    <section className="hydro-hero relative isolate min-h-[min(900px,calc(100svh-68px))] overflow-hidden text-white lg:min-h-[790px]">
-      <div className="hydro-orb hydro-orb-one" aria-hidden="true" />
-      <div className="hydro-orb hydro-orb-two" aria-hidden="true" />
-      <div className="absolute inset-0" aria-live="off">
-        {slides.map((slide, index) => (
-          <img key={slide.image} src={slide.image} width={1536} height={1024} fetchPriority={index === 0 ? 'high' : 'auto'} loading={index === 0 ? 'eager' : 'lazy'} alt={slide.alt} className={`hero-slide absolute inset-0 h-full w-full object-cover ${index === active ? 'is-active' : ''}`} />
-        ))}
-      </div>
-      <div className="hero-cinematic-overlay absolute inset-0" />
-      <div className="container-pcc relative z-10 grid min-h-[min(900px,calc(100svh-68px))] items-center gap-7 pb-24 pt-12 sm:gap-10 sm:pt-16 lg:min-h-[790px] lg:grid-cols-[1fr_.78fr] lg:gap-8 lg:pb-24">
-        <div className="max-w-4xl reveal">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-aqua-300/30 bg-white/10 px-4 py-2 text-[10px] font-bold uppercase tracking-[.2em] text-aqua-200 backdrop-blur-xl sm:mb-6"><Droplets size={14} /> Pure Custom Creation · Sri Lanka</div>
-          <h1 className="display max-w-[11ch] text-[clamp(3.1rem,8.2vw,7.7rem)] uppercase leading-[.9]">PURE<br />HYDRATION.<br /><span className="text-aqua-300">CREATIVE</span><br /><span className="text-white/70">EXPRESSION.</span></h1>
-          <p className="mt-6 max-w-lg text-sm leading-7 text-white/75 md:mt-7 md:text-base">Customized bottled drinking water designed to carry your brand, coordinated from bottle and label to filling and supply.</p>
-          <div className="mt-7 flex flex-wrap gap-3"><Button asChild variant="brand" size="lg" className="rounded-full"><Link to="/request-a-quote">Get a Quote <ArrowRight /></Link></Button><Button asChild variant="inverse" size="lg" className="rounded-full border-white/30 bg-white/10 text-white backdrop-blur-md hover:bg-white/15"><Link to="/how-it-works">See How It Works <ArrowRight /></Link></Button></div>
-          <p className="mt-6 text-[10px] font-semibold uppercase tracking-[.17em] text-white/45">Your Brand. Your Bottle.</p>
+    <section className="pcc-home-hero">
+      <div className="pcc-hero-light pcc-hero-light-one" aria-hidden="true"/>
+      <div className="pcc-hero-light pcc-hero-light-two" aria-hidden="true"/>
+      <div className="pcc-hero-ribbon pcc-hero-ribbon-top" aria-hidden="true"/>
+      <div className="pcc-hero-ribbon pcc-hero-ribbon-bottom" aria-hidden="true"/>
+      <div className="pcc-hero-inner">
+        <div className="pcc-hero-copy">
+          <h1>Represent your<br/>brand on every<br/><span>bottle</span></h1>
+          <div className="pcc-headline-mark" aria-hidden="true"/>
+          <p>Customize your bottle with your brand.</p>
         </div>
-
-        <div className="relative mx-auto flex w-full max-w-[440px] flex-col items-center justify-center lg:max-w-[500px]">
-          <div className="hydro-ring hydro-ring-one" aria-hidden="true" />
-          <div className="hydro-ring hydro-ring-two" aria-hidden="true" />
-          <div className="relative z-10 w-full rounded-[2rem] border border-white/25 bg-white/[.10] p-3 shadow-[0_25px_90px_rgba(0,0,0,.25)] backdrop-blur-xl sm:p-5">
-            <div className="relative mx-auto aspect-[4/4.5] max-h-[440px] w-full overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-white/[.16] via-aqua-300/[.08] to-white/[.03]">
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_40%,rgba(146,239,240,.24),transparent_65%)]" />
-              <div className="absolute inset-x-0 top-5 flex justify-between px-5 text-[9px] font-bold uppercase tracking-[.18em] text-white/45"><span>PCC / FORM STUDY</span><span>01 — 04</span></div>
-              <div className="absolute inset-4 bottom-2"><BottleShowcase capColor={capColor} /></div>
-              <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full border border-white/20 bg-white/85 px-3 py-2 text-[9px] font-bold uppercase tracking-widest text-ocean-950 shadow-lg"><Sparkles size={13} className="text-aqua-700" /> A canvas for your brand</div>
+        <div className="pcc-bottle-stage">
+          <svg className="pcc-water-orbit" viewBox="0 0 700 620" aria-hidden="true"><path d="M30 355 C120 160 240 170 350 260 S540 430 660 220" fill="none" stroke="url(#orbitGradient)" strokeWidth="7" strokeLinecap="round"/><defs><linearGradient id="orbitGradient"><stop stopColor="#73dcff" stopOpacity=".12"/><stop offset=".4" stopColor="#fff" stopOpacity=".95"/><stop offset=".7" stopColor="#c18bff" stopOpacity=".85"/><stop offset="1" stopColor="#7ce7f3" stopOpacity=".15"/></linearGradient></defs></svg>
+          <div className="pcc-bottle-float"><Bottle cap={caps[capIndex].color} label={labels[labelIndex]}/></div>
+          <span className="pcc-bubble bubble-one"/><span className="pcc-bubble bubble-two"/><span className="pcc-bubble bubble-three"/><span className="pcc-bubble bubble-four"/>
+          <div className="pcc-customizer">
+            <div className="pcc-customizer-group">
+              <p>Cap Colour</p>
+              <div className="pcc-cap-swatches">{caps.map((item,index)=><span key={item.name} className={index===capIndex?'active':''} style={{'--swatch':item.color} as React.CSSProperties}/>)}</div>
             </div>
-            <div className="flex flex-wrap items-center justify-between gap-3 px-2 pb-1 pt-4 sm:px-1">
-              <div><p className="text-[9px] font-bold uppercase tracking-[.18em] text-white/55">Choose a cap finish</p><p className="mt-1 text-xs font-semibold text-white">{capOptions.find((option) => option.hex === capColor)?.name} · Preview</p></div>
-              <div className="flex items-center gap-2" role="group" aria-label="Bottle cap colour">
-                {capOptions.map((option) => <button key={option.name} type="button" aria-label={`${option.name} cap colour`} aria-pressed={capColor === option.hex} onClick={() => setCapColor(option.hex)} className={`grid size-8 place-items-center rounded-full border transition ${capColor === option.hex ? 'scale-110 border-white ring-2 ring-aqua-300 ring-offset-2 ring-offset-ocean-950' : 'border-white/35 hover:scale-105'}`} style={{ backgroundColor: option.hex }}>{capColor === option.hex && <Check size={14} className={option.name === 'Pearl' ? 'text-ocean-950' : 'text-white'} />}</button>)}
-              </div>
+            <div className="pcc-customizer-divider"/>
+            <div className="pcc-customizer-group pcc-label-options">
+              <p>Label Design</p>
+              {labels.map((item,index)=><span key={item.name} className={index===labelIndex?'active':''} style={{'--label-a':item.a,'--label-b':item.b,'--label-c':item.c} as React.CSSProperties}><i/></span>)}
             </div>
           </div>
-          <div className="mt-4 flex w-full items-center justify-between px-2 text-[9px] font-bold uppercase tracking-[.17em] text-white/40"><span>Interactive cap preview</span><span>Illustrative concept · Not a final spec</span></div>
         </div>
       </div>
-
-      <div className="absolute inset-x-0 bottom-0 z-20 border-t border-white/15 bg-ocean-950/55 backdrop-blur-md">
-        <div className="container-pcc flex min-h-16 items-center justify-between gap-4">
-          <span className="hidden text-[10px] font-bold uppercase tracking-[.18em] text-white/65 sm:block">{slides[active].note}</span>
-          <div className="flex items-center gap-2" aria-label="Hero slides">
-            {slides.map((slide, index) => <button key={slide.note} type="button" aria-label={`Show slide ${index + 1}`} aria-current={index === active} onClick={() => setActive(index)} className={`h-1.5 transition-[width,background-color] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aqua-300 ${index === active ? 'w-10 bg-aqua-300' : 'w-5 bg-white/45 hover:bg-white/75'}`} />)}
-          </div>
-          <div className="flex items-center gap-1">
-            <Button type="button" variant="iconDark" size="icon" aria-label="Previous slide" onClick={() => move(-1)}><ArrowLeft /></Button>
-            <Button type="button" variant="iconDark" size="icon" aria-label={paused ? 'Play slideshow' : 'Pause slideshow'} aria-pressed={paused} onClick={() => setPaused((value) => !value)}>{paused ? <Play /> : <Pause />}</Button>
-            <Button type="button" variant="iconDark" size="icon" aria-label="Next slide" onClick={() => move(1)}><ArrowRight /></Button>
-            <a href="#categories" aria-label="Continue to solutions" className="ml-2 grid size-9 place-items-center"><ArrowDown size={17} /></a>
-          </div>
-        </div>
-      </div>
+      <div className="pcc-hero-waterline" aria-hidden="true"/>
     </section>
   );
 }

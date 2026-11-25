@@ -24,7 +24,7 @@ export const pccAssets = {
   workDivineStreet: eventScene,
   workChillKandy: bottleScene,
   finalCtaImage: tableScene,
-  pccLogoIcon: null,
+  pccLogoIcon: '/favicon.svg',
   pccLogoFull: logoFull,
   bottleBlueprint,
 } as const;

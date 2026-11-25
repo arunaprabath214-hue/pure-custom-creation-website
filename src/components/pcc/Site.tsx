@@ -34,7 +34,7 @@ export function Header() {
   return <>
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 text-ocean-950 backdrop-blur-xl">
       <div className="container-pcc flex h-[68px] items-center justify-between gap-4 lg:h-[76px]">
-        <Brand light />
+        <Brand />
         <nav aria-label="Main navigation" className="hidden items-center gap-4 xl:gap-6 lg:flex">{nav.map(([label, path]) => <Link key={path} to={path} className={`text-[11px] font-semibold transition-colors hover:text-aqua-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aqua-300 ${pathname === path ? 'text-ocean-900' : 'text-ocean-900/75'}`}>{label}</Link>)}</nav>
         <div className="flex items-center gap-2"><Button asChild variant="outline" size="sm" className="hidden rounded-full border-ocean-900 text-ocean-950 sm:inline-flex"><Link to="/request-a-quote">Get a Quote <ArrowRight /></Link></Button><Button ref={menuButton} variant="ghost" size="icon" className="text-ocean-950 lg:hidden" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</Button></div>
       </div>

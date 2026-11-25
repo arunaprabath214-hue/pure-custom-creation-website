@@ -10,8 +10,9 @@ const nav = [
 ] as const;
 
 export function Brand({ light = false }: { light?: boolean }) {
-  return <Link to="/" className="inline-flex shrink-0 items-center" aria-label="Pure Custom Creation home">
-    <img src={pccAssets.pccLogoFull ?? ''} alt="Pure Custom Creation" width={356} height={65} className={`h-auto w-[150px] sm:w-[175px] ${light ? '' : 'invert'}`} />
+  return <Link to="/" className="inline-flex shrink-0 items-center gap-3" aria-label="Pure Custom Creation home">
+    <img src="/pcc-icon.svg" alt="" width={54} height={44} className="h-10 w-12 object-contain" />
+    <span className={`border-l border-ocean-900/25 pl-3 font-display text-[13px] font-extrabold leading-[1.05] tracking-tight ${light ? 'text-white' : 'text-ocean-950'}`}>Pure<br/>Custom<br/>Creation</span>
   </Link>;
 }
 
@@ -31,11 +32,11 @@ export function Header() {
     return () => { document.body.style.overflow = previous; window.removeEventListener('keydown', onKeyDown); };
   }, [open]);
   return <>
-    <header className="sticky top-0 z-50 border-b border-ocean-800/70 bg-ocean-950/95 text-white backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 text-ocean-950 backdrop-blur-xl">
       <div className="container-pcc flex h-[68px] items-center justify-between gap-4 lg:h-[76px]">
         <Brand light />
-        <nav aria-label="Main navigation" className="hidden items-center gap-4 xl:gap-6 lg:flex">{nav.map(([label, path]) => <Link key={path} to={path} className={`text-[11px] font-semibold transition-colors hover:text-aqua-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aqua-300 ${pathname === path ? 'text-aqua-300' : 'text-white/75'}`}>{label}</Link>)}</nav>
-        <div className="flex items-center gap-2"><Button asChild variant="brand" size="sm" className="hidden sm:inline-flex"><Link to="/request-a-quote">Get a Quote <ArrowRight /></Link></Button><Button ref={menuButton} variant="iconDark" size="icon" className="lg:hidden" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</Button></div>
+        <nav aria-label="Main navigation" className="hidden items-center gap-4 xl:gap-6 lg:flex">{nav.map(([label, path]) => <Link key={path} to={path} className={`text-[11px] font-semibold transition-colors hover:text-aqua-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aqua-300 ${pathname === path ? 'text-ocean-900' : 'text-ocean-900/75'}`}>{label}</Link>)}</nav>
+        <div className="flex items-center gap-2"><Button asChild variant="outline" size="sm" className="hidden rounded-full border-ocean-900 text-ocean-950 sm:inline-flex"><Link to="/request-a-quote">Get a Quote <ArrowRight /></Link></Button><Button ref={menuButton} variant="ghost" size="icon" className="text-ocean-950 lg:hidden" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</Button></div>
       </div>
       {open && <nav id="mobile-navigation" aria-label="Mobile navigation" className="max-h-[calc(100svh-68px)] overflow-y-auto border-t border-ocean-800 bg-ocean-950 px-5 py-4 lg:hidden">{nav.map(([label, path]) => <Link key={path} to={path} onClick={() => setOpen(false)} className="block border-b border-ocean-800 py-3 text-sm font-medium text-white/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aqua-300">{label}</Link>)}<Link to="/request-a-quote" onClick={() => setOpen(false)} className="mt-4 block rounded-full bg-aqua-300 px-5 py-3 text-center text-sm font-bold text-ocean-950">Get a Quote <ArrowRight className="ml-2 inline size-4" /></Link></nav>}
     </header>
